@@ -17,4 +17,4 @@ sleep 0.001
 
 volume_percent=$(amixer -c 1 sget 'PGA1.0 1 Master' | awk -F'[][%]' '/dB/ {print $2; exit}')
 # volume_percent=$(pactl get-sink-volume @DEFAULT_SINK@ | awk '/Volume:/ {print $5}' | tr -d '%')
-exec notify-send -r 1 --expire-time 500 "🔈 $volume_percent% 🔈"
+exec notify-send -r 1 --expire-time 500 "Volume" "🔈 $volume_percent% 🔈"

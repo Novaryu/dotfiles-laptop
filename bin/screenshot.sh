@@ -19,4 +19,4 @@ xclip -selection clipboard -t image/png -i "$TEMP_DIR/$TEMP_FILENAME"
 rm "$TEMP_DIR/$TEMP_FILENAME"
 
 # Notify the user about the successful screenshot
-notify-send "Screen copied to clipboard"
+notify-send "Screenshot" "Screen copied to clipboard" --expire-time 1000

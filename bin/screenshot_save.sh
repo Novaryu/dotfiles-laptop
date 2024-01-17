@@ -19,4 +19,4 @@ scrot -F "$DIR/$FILENAME" -q 100
 sleep 0.01
 
 # Notify the user about the successful screenshot
-notify-send "Screenshot Saved"
+notify-send "Screenshot" "Saved to $DIR" --expire-time 1000

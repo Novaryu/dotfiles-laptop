@@ -23,4 +23,4 @@ echo "$new_brightness" > "$brightness_file"
 
 echo "Brightness level updated to $new_brightness"
 
-exec notify-send -r 1 --expire-time 500 " ⌨  $new_brightness  ⌨ "
+exec notify-send -r 1 --expire-time 500 "Keylight" " ⌨  $new_brightness/3  ⌨ "

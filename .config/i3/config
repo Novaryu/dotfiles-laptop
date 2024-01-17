@@ -92,7 +92,7 @@ bindsym $mod+g exec --no-startup-id alacritty -e ~/Godot/godot --editor --verbos
 bindsym $mod+c exec alacritty -e ~/Godot/omega/compile_cpp.sh
 
 # Toggle night mode
-bindsym $win+n exec --no-startup-id ~/bin/toggle_redshift.sh
+bindsym $win+n exec --no-startup-id ~/bin/night_mode_toggle.sh
 
 # Open i3 config
 bindsym $win+i exec --no-startup-id alacritty -e nvim ~/.config/i3/config

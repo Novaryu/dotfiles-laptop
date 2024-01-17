@@ -43,7 +43,7 @@ adjust_brightness() {
   echo $new_brightness > $brightness_file
   echo "Brightness adjusted to $new_brightness."
   let percent=new_brightness/4
-  exec notify-send -r 1 --expire-time 500 "🔆 $percent% 🔆"
+  exec notify-send -r 1 --expire-time 500 "Brightness" "🔆 $percent% 🔆"
   # exec notify-send -r 1 --expire-time 500 "🔆 $new_brightness 🔆"
 }
 
