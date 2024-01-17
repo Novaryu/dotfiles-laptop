@@ -1,0 +1,33 @@
+local Job = require "plenary.job"
+
+local function pingPortAsync(callback)
+    Job:new({
+        command = 'ncat',
+        args = {'127.0.0.1', '6005', '-z', '-v'},
+        on_exit = function(j, return_val)
+            local res = table.concat(j:result(), " ")
+            if return_val == 0 then
+                callback(true)
+            else
+                callback(false)
+            end
+        end,
+    }):start()
+end
+
+local function start_lsp()
+    vim.schedule(function()  -- Use vim.schedule to execute this in the main thread
+		RUN_MY_FUNCTION_HERE()
+    end)
+end
+
+local function ping_lsp()
+    pingPortAsync(function(success)
+        if success then
+			start_lsp()
+        else
+        end
+    end)
+end
+
+ping_lsp()
