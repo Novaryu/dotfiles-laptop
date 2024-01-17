@@ -49,6 +49,9 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id ~/bin/change_volume.sh up
 bindsym XF86AudioLowerVolume exec --no-startup-id ~/bin/change_volume.sh down
 bindsym XF86AudioMute exec --no-startup-id ~/bin/change_mute.sh
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym XF86MonBrightnessUp exec --no-startup-id ~/bin/brightness_control.sh up
+bindsym XF86MonBrightnessDown exec --no-startup-id ~/bin/brightness_control.sh down
+
 
 bindsym $win+F2 exec --no-startup-id mpc volume -10
 bindsym $win+F3 exec --no-startup-id mpc volume +10
