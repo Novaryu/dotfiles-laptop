@@ -9,7 +9,7 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-# Assuming your compiled C++ program is named 'my_program'
-window_name=$(~/bin/cpp/parse_i3 "$json_data")
+# Parse the output
+window_list=$(~/bin/cpp/parse_i3 "$json_data")
 
-exec notify-send "$window_name" --expire-time=600 --replace-id=1
+exec notify-send "$window_list" --expire-time=600 --replace-id=1

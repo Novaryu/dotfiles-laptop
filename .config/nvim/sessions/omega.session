@@ -20,6 +20,7 @@ badd +181 src/ship/ship_manager.cpp
 badd +36 src/ship/ship_manager.h
 badd +15 src/benchmark.cpp
 badd +1 src/benchmark.h
+badd +5 health://
 argglobal
 %argdel
 edit src/ship/ship_manager.cpp
@@ -33,7 +34,7 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 181 - ((24 * winheight(0) + 24) / 49)
+let s:l = 181 - ((24 * winheight(0) + 25) / 50)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
