@@ -37,6 +37,7 @@ exec --no-startup-id wired
 exec --no-startup-id ~/.fehbg &
 exec --no-startup-id easyeffects --gapplication-service
 exec --no-startup-id fcitx5
+exec --no-startup-id unclutter &
 exec_always --no-startup-id ~/bin/launch_polybar.sh
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
@@ -57,6 +58,7 @@ bindsym $win+F2 exec --no-startup-id mpc volume -10
 bindsym $win+F3 exec --no-startup-id mpc volume +10
 bindsym $win+F4 exec --no-startup-id ~/bin/brightness_control.sh down
 bindsym $win+F5 exec --no-startup-id ~/bin/brightness_control.sh up
+bindsym $win+F6 exec --no-startup-id ~/bin/touchpad_toggle.sh
 bindsym $win+F7 exec --no-startup-id ~/bin/keyboard_control.sh up
 bindsym $win+F11 exec --no-startup-id ~/bin/screenshot_select.sh
 bindsym $win+F12 exec --no-startup-id ~/bin/screenshot_save.sh
@@ -86,7 +88,7 @@ bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec --no-startup-id rofi -dpi 192 -show drun
-bindsym $mod+g exec --no-startup-id ~/Godot/godot --editor --path ~/Godot/omega
+bindsym $mod+g exec --no-startup-id alacritty -e ~/Godot/godot --editor --verbose --path ~/Godot/omega
 bindsym $mod+c exec alacritty -e ~/Godot/omega/compile_cpp.sh
 
 # Toggle night mode

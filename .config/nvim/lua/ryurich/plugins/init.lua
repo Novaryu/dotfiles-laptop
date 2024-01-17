@@ -21,7 +21,7 @@ return {
     {"folke/todo-comments.nvim", config = true, dependencies = {"nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim", "folke/trouble.nvim",},
 	event = {"BufReadPre"},
 	keys = {
-		{"<leader>tf", "<cmd>TodoTelescope<cr>", desc = "Todo Search"},
+		{"<leader>tf", "<cmd>TodoTelescope<cr><esc>", desc = "Todo Search"},
 		{"<leader>tx", "<cmd>TodoTrouble<cr>", desc = "Todo Trouble"},
 	},},
 
@@ -62,6 +62,8 @@ return {
 
 	-- CPP specific
 	{ "jakemason/ouroboros.nvim", dependencies = {"nvim-lua/plenary.nvim"}, event = "BufEnter" },
+
+	{ "vim-ctrlspace/vim-ctrlspace"},
 
 	-- Integrate in after/ftplugin later
 	-- { "artempyanykh/marksman", lazy = true, config = true, ft = "markdown"},

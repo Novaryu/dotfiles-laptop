@@ -2,6 +2,9 @@ vim.g.mapleader = " "
 
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
+vim.g.CtrlSpaceDefaultMappingKey = "<C-space> "
+vim.g.CtrlSpaceSaveWorkspaceOnSwitch = 1
+vim.g.CtrlSpaceSaveWorkspaceOnExit = 1
 
 -- NEOVIM OPTIONS
 
@@ -34,6 +37,9 @@ opt.showmode = false
 opt.completeopt = 'menuone,preview'
 
 opt.laststatus=3
+-- Hide command bar and tabline
+opt.cmdheight=0
+opt.showtabline=0
 
 opt.encoding = 'UTF-8'
 opt.guifont = 'FiraCode\\ Nerd\\ Font\\ Mono:h12'

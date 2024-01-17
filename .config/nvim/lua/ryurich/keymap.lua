@@ -141,6 +141,8 @@ vim.keymap.set('n', '<C-s>', ':update<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader><esc>', ':qa!<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>zt', ':Twilight<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>zz', ':ZenMode<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>zsh', ':set laststatus=0 ruler<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>zss', ':set laststatus=3 ruler<CR>', { noremap = true, silent = true })
 
 vim.keymap.set('n', '<Esc>', '<Esc><Esc>:nohl<CR>:echo<CR>', { noremap = true, silent = true })
 vim.keymap.set("n", "x", '"_x', { noremap = true })
@@ -149,8 +151,8 @@ vim.keymap.set("n", "dd", function ()
 	if vim.fn.getline(".") == "" then return '"_dd' end 
 	return "dd"
 end, {expr = true})
--- vim.keymap.set("n", "J", "6j")
--- vim.keymap.set("n", "K", "6k")
+vim.keymap.set("n", "J", "6j")
+vim.keymap.set("n", "K", "6k")
 vim.keymap.set("n", "H", "0^")
 vim.keymap.set("n", "L", "$")
 
@@ -166,10 +168,10 @@ end, {silent = true})
 
 wk.register({
 
-["K"] = { "<cmd>bnext<cr>", "Navigate to next buffer" },
-["J"] = { "<cmd>bprevious<cr>", "Navigate to previous buffer" },
-["<C-S-l>"] = { "<cmd>+tabnext<cr>", "Natigate to next tab" },
-["<C-S-h>"] = { "<cmd>-tabprevious<cr>", "Navigate to previous tab" },
+["<C-S-j>"] = { "<cmd>bnext<cr>", "Navigate to next buffer" },
+["<C-S-k>"] = { "<cmd>bprevious<cr>", "Navigate to previous buffer" },
+["<C-S-l>"] = { "<cmd>tabnext<cr>", "Natigate to next tab" },
+["<C-S-h>"] = { "<cmd>tabprevious<cr>", "Navigate to previous tab" },
 
 ["<leader>t"] = { name = "tab" },
 ["<leader>tn"] = { "<cmd>tabnew<cr>", "Open a new tab" },
@@ -196,6 +198,7 @@ wk.register({
 ["<leader>vi"] = { function() vim.cmd('edit ' .. nvim_path .. '/init.lua') end, "open init.lua"},
 ["<leader>vk"] = { function() vim.cmd('edit ' .. nvim_path .. '/lua/ryurich/keymap.lua') end, "open keymap.lua" },
 ["<leader>vp"] = { function() vim.cmd('edit ' .. nvim_path .. '/lua/ryurich/plugins/init.lua') end, "open plugins/init.lua"},
+["<leader>vg"] = { function() vim.cmd('edit ' .. nvim_path .. '/lua/ryurich/config.lua') end, "open config.lua"},
 ["<leader>vc"] = { function() vim.cmd('cd ' .. vim.fn.expand('%:p:h')) end, "change directory to current file"},
 
 -- Nvim-Tree Mappings

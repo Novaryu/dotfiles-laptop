@@ -16,16 +16,25 @@ else
   set shortmess=aoO
 endif
 badd +1 project/classes/ships/modular_ship/modular_ship.gd
-badd +181 src/ship/ship_manager.cpp
+badd +175 src/ship/ship_manager.cpp
 badd +36 src/ship/ship_manager.h
 badd +15 src/benchmark.cpp
 badd +1 src/benchmark.h
-badd +5 health://
+badd +1 health://
 argglobal
 %argdel
+set stal=2
+tabnew +setlocal\ bufhidden=wipe
+tabrewind
 edit src/ship/ship_manager.cpp
+wincmd t
+let s:save_winminheight = &winminheight
+let s:save_winminwidth = &winminwidth
+set winminheight=0
+set winheight=1
+set winminwidth=0
+set winwidth=1
 argglobal
-balt src/ship/ship_manager.h
 setlocal fdm=expr
 setlocal fde=nvim_treesitter#foldexpr()
 setlocal fmr={{{,}}}
@@ -34,14 +43,28 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 181 - ((24 * winheight(0) + 25) / 50)
+let s:l = 175 - ((25 * winheight(0) + 25) / 51)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 181
-normal! $
+keepjumps 175
+normal! 09|
 lcd ~/Godot/omega
-tabnext 1
+tabnext
+argglobal
+enew
+balt ~/Godot/omega/src/ship/ship_manager.cpp
+setlocal fdm=expr
+setlocal fde=nvim_treesitter#foldexpr()
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+lcd ~/Godot/omega
+tabnext 2
+set stal=1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
 endif

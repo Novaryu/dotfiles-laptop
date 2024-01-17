@@ -35,5 +35,7 @@ config = function()
 			},
 		},
 	})
+	-- Hide statusline by default
+	vim.api.nvim_command('set laststatus=0 ruler')
 end,
 }
