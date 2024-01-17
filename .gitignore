@@ -6,6 +6,9 @@
 !/bin/
 
 # Include Configs
+!/.config
+/.config/*
+
 !/.config/alacritty/
 !/.config/btop/
 !/.config/i3/
