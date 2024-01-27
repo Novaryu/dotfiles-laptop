@@ -14,7 +14,7 @@ if vim.fn.has("win32") == 1 then
 	dir_table =
 	{
 		[1] = "C:\\Users\\Ryu\\Documents\\Godot\\Omega\\",
-		[2] = "I:\\Music\\",	
+		[2] = "I:\\Music\\",
 		[3] = "C:\\Users\\Ryu\\Documents\\AutoIt\\",
 		[4] = "C:\\Users\\Ryu\\Documents\\Obsidian\\ryurich\\FPGEE",
 		[0] = "C:\\Users\\Ryu\\AppData\\Local\\nvim\\",
@@ -44,7 +44,7 @@ local function new_file()
 	else
 		file_dir = os.getenv("HOME") .. '/Documents/Neovim/'
 	end
-	file_name = vim.fn.input("File Name (+extension): ")
+	local file_name = vim.fn.input("File Name (+extension): ")
 	if file_name and file_name ~= "" then
 		vim.api.nvim_command('e ' .. file_dir .. file_name)
 	else
@@ -54,7 +54,7 @@ end
 
 local function session_operation(operation, session_name)
     local session_path = nvim_path .. "/sessions/"
-    
+
     if not session_name then
         session_name = vim.fn.input("Session Name: ")
         vim.api.nvim_command('echo ' .. vim.fn.shellescape(session_name))
@@ -62,7 +62,7 @@ local function session_operation(operation, session_name)
     if session_name and session_name ~= "" then
         if operation == 'save' then
             vim.api.nvim_command('SessionsSave ' .. session_path .. session_name .. ".session")
-        elseif operation == 'load' then    
+        elseif operation == 'load' then
             vim.api.nvim_command('SessionsLoad ' .. session_path .. session_name .. ".session")
         end
     else
@@ -141,14 +141,14 @@ vim.keymap.set('n', '<C-s>', ':update<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader><esc>', ':qa!<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>zt', ':Twilight<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>zz', ':ZenMode<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>zsh', ':set laststatus=0 ruler<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>zss', ':set laststatus=3 ruler<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>zsh', ':set laststatus=0 ruler<CR>:set cmdheight=0<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>zss', ':set laststatus=3 ruler<CR>:set cmdheight=1<CR>', { noremap = true, silent = true })
 
 vim.keymap.set('n', '<Esc>', '<Esc><Esc>:nohl<CR>:echo<CR>', { noremap = true, silent = true })
 vim.keymap.set("n", "x", '"_x', { noremap = true })
 vim.keymap.set("n", "c", '"_c', { noremap = true })
 vim.keymap.set("n", "dd", function ()
-	if vim.fn.getline(".") == "" then return '"_dd' end 
+	if vim.fn.getline(".") == "" then return '"_dd' end
 	return "dd"
 end, {expr = true})
 vim.keymap.set("n", "J", "6j")
@@ -166,10 +166,14 @@ vim.keymap.set({"i", "s"}, "<C-E>", function()
 	end
 end, {silent = true})
 
+vim.keymap.set('n', '<leader>jt', require('treesj').toggle)
+vim.keymap.set('n', '<leader>js', require('treesj').split)
+vim.keymap.set('n', '<leader>jj', require('treesj').join)
+
 wk.register({
 
-["<C-S-j>"] = { "<cmd>bnext<cr>", "Navigate to next buffer" },
-["<C-S-k>"] = { "<cmd>bprevious<cr>", "Navigate to previous buffer" },
+["<C-S-j>"] = { "<cmd>CtrlSpaceGoDown<cr>", "Navigate to next buffer" },
+["<C-S-k>"] = { "<cmd>CtrlSpaceGoUp<cr>", "Navigate to previous buffer" },
 ["<C-S-l>"] = { "<cmd>tabnext<cr>", "Natigate to next tab" },
 ["<C-S-h>"] = { "<cmd>tabprevious<cr>", "Navigate to previous tab" },
 
@@ -191,7 +195,7 @@ wk.register({
 ["<leader>lw"] = { function() vim.cmd('set wrap!') end, "toggle line wrap"},
 ["<leader>la"] = { function() vim.lsp.buf.code_action() end, "open code actions"},
 ["<leader>lc"] = { ":execute 'set colorcolumn=' . (&colorcolumn == '' ? '80,100' : '')<CR>", "toggle columns"},
-["<leader>sp"] = { function() vim.cmd('set spell!') end, "toggle spell checker"},
+["<leader>ls"] = { function() vim.cmd('set spell!') end, "toggle spell checker"},
 
 -- Configuration Mappings
 ["<leader>v"] = { name = "neovim" },

@@ -4,7 +4,7 @@
 brightness_file="/sys/class/backlight/intel_backlight/brightness"
 
 # Define the minimum and maximum brightness values
-min_brightness=10
+min_brightness=6
 max_brightness=400
 
 # Read the current brightness value
@@ -13,7 +13,7 @@ current_brightness=$(cat $brightness_file)
 # Function to adjust brightness
 adjust_brightness() {
   local direction=$1
-  local step=50
+  local step=25
 
   if [ "$direction" == "up" ] && [ "$current_brightness" -lt 50 ]; then
 	step=4

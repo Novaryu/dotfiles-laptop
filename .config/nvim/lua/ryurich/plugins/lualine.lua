@@ -12,8 +12,10 @@ config = function()
 	  local current_col = vim.fn.col('.')
 	  local total_lines = vim.fn.line('$')
 	  local total_cols = vim.fn.col('$')
-	  local ln_symbol = vim.fn.nr2char(0xE0A1) -- Unicode for "LN" symbol
-	  local cn_symbol = vim.fn.nr2char(0xE0A3) -- Unicode for "CN" symbol
+	  -- local ln_symbol = vim.fn.nr2char(0xE0A1) -- Unicode for "LN" symbol
+	  -- local cn_symbol = vim.fn.nr2char(0xE0A3) -- Unicode for "CN" symbol
+	  local ln_symbol = vim.fn.nr2char(0x2630)
+	  local cn_symbol = vim.fn.nr2char(0x2637)
 		return string.format('%s %d/%d %s %d/%d', ln_symbol, current_line, total_lines, cn_symbol, current_col, total_cols)
 	end
 

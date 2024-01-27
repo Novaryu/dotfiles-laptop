@@ -1,14 +1,13 @@
 return {
-	
+
 	-- PLUGINS NOT YET ADDED BUT CONSIDERING:
 	-- https://github.com/monaqa/dial.nvim -- increment/decrement plugin
-	-- https://github.com/Wansmer/treesj -- splitting/joining blocks of code
-	-- https://github.com/windwp/nvim-autopairs -- autopairing
 	-- https://github.com/debugloop/telescope-undo.nvim -- undo tree
 	-- https://github.com/nvim-neorg/neorg -- organization plugin
 
 	-- Keymapper and Key Legend
 	{"folke/which-key.nvim", lazy = true},
+	{"alexanderbluhm/black.nvim", event = "VeryLazy"},
 
 	-- Session manager
 	{ "natecraddock/sessions.nvim", config = true, event = "VeryLazy",},
@@ -26,17 +25,21 @@ return {
 	},},
 
 	-- Effortlessly leave insert mode with custom mapping
-	{"max397574/better-escape.nvim", config = true, opts = {mapping = {"jj"}}, event = "VeryLazy",},
+	{"max397574/better-escape.nvim", config = true, opts = {mapping = {"jj", "kk", "jk", "kj"}}, event = "VeryLazy",},
+
 	-- Easily comment/uncomment
 	{"numToStr/Comment.nvim", config = true, event = {"BufReadPre", "BufNewFile"}},
-	
+
+	{"windwp/nvim-autopairs", opts = {}, event = "InsertEnter"},
+	{"folke/neodev.nvim", opts = {lspconfig = false} },
+
 	-- Training for motions
 	{"tjdevries/train.nvim", keys = {
 		{"<leader>tv", "<cmd>TrainUpDown<cr>", desc = "Train Up/Down"},
 		{"<leader>tw", "<cmd>TrainWord<cr>", desc = "Train Words"},
 		{"<leader>to", "<cmd>TrainTextObj<cr>", desc = "Train Text Objects"},
 	},},
-	
+
 	-- Visual Productivity
 	{ "folke/zen-mode.nvim", opts = {
 		plugins = {
@@ -69,5 +72,13 @@ return {
 	-- { "artempyanykh/marksman", lazy = true, config = true, ft = "markdown"},
 
 	-- { "nvim-telescope/telescope-dap.nvim", event = "VeryLazy"},
+	{
+	  "Wansmer/treesj",
+	  keys = { '<space>jj', '<space>js', '<space>jt' },
+	  dependencies = { 'nvim-treesitter/nvim-treesitter' },
+	  config = function()
+		require('treesj').setup({use_default_keymaps=false,})
+	  end,
+	}
 
 }

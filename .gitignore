@@ -19,6 +19,7 @@
 !/.config/picom/
 !/.config/polybar/
 !/.config/rofi/
+!/.config/tmux/
 !/.config/wired/
 
 # Include Dotfiles
